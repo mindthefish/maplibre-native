@@ -2638,7 +2638,7 @@ public:
         
         CLLocationDegrees gestureSlopeAngle = [self angleBetweenPoints:self.dragGestureMiddlePoint endPoint:middlePoint];
         self.dragGestureMiddlePoint = middlePoint;
-        if (fabs(fingerSlopeAngle) < MLNHorizontalTiltToleranceDegrees && fabs(gestureSlopeAngle) > 60.0 ) {
+        if (fabs(fingerSlopeAngle) < MLNHorizontalTiltToleranceDegrees && fabs(gestureSlopeAngle) > mbgl::util::rad2deg(mbgl::util::PITCH_MAX) ) {
             
             CGFloat gestureDistance = middlePoint.y;
             CGFloat slowdown = 2.0;
